@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dress Collections</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Styling the fonts */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.95; /* Reducing opacity for better visibility of elements */
+            background-color: #f5f5f5; /* إضافة لون خلفية بديل في حالة عدم تحميل الخلفية */
+        }
+
+        /* Logo pulsating effect and circular shape */
+        .logo {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%; /* Making the logo circular */
+            object-fit: cover; /* Fit the image within the circle */
+            z-index: 100;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Styling the header */
+        header {
+            background-color: rgba(39, 65, 46, 0.9); /* Olive with transparency */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 2em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        /* Styling the tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background-color: #4f6b3f; /* Dark olive suitable for the image */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .tab {
+            padding: 18px 25px;
+            color: white;
+            cursor: pointer;
+            text-align: center;
+            flex: 1;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: 500;
+            background-color: #6b7a4d; /* Medium olive green */
+        }
+
+        .tab:hover {
+            background-color: #3a5233; /* Dark olive on hover */
+            transform: scale(1.05);
+        }
+
+        .tab.active {
+            background-color: #39502e; /* Dark green when active */
+            transform: scale(1.1);
+        }
+
+        /* Styling the content */
+        .container {
+            margin: 20px;
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+            color: #333;
+        }
+
+        .container.active {
+            display: block;
+        }
+
+        /* Styling the tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff; /* White background for better contrast */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 14px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #39502e; /* Dark green for headers */
+            color: white;
+            font-weight: 700;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Styling image links */
+        .image-link {
+            color: #2196F3;
+            text-decoration: none;
+        }
+
+        .image-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Styling the color selector */
+        .color-select {
+            padding: 0;
+            border: none;
+            background: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Styling for selected color display and name */
+        .color-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .selected-color {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            margin-top: 5px;
+            vertical-align: middle;
+            border: 1px solid #ccc;
+        }
+
+        .color-name {
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        /* Responsive styling for small screens */
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab {
+                padding: 12px;
+                font-size: 16px;
+            }
+        }
+
+        /* Fading effect for switching sections */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Logo in the top left corner -->
+<img src="A1.png" class="logo" alt="Logo">
+
+<header>
+    <h1>Dress Collections</h1>
+</header>
+
+<!-- Tabs -->
+<div class="tabs">
+    <div class="tab active" onclick="showContent('collection2023')">Collection 2023 (16 Dresses)</div>
+    <div class="tab" onclick="showContent('collection2024')">Collection 2024 (8 Dresses)</div>
+    <div class="tab" onclick="showContent('readyToWear')">Ready to Wear (9 Dresses)</div>
+</div>
+
+<!-- Collection 2023 Content -->
+<div id="collection2023" class="container active">
+    <h2>Collection 2023</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Available Sizes</th>
+                <th>Image Links</th>
+                <th>Colors</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- جميع المنتجات لـ Collection 2023 -->
+            <tr>
+                <td>Peach Bank</td>
+                <td>SAR 5,635.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/blended-wool-coat">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#FFC0CB">
+                        <span class="selected-color" id="color-peach-bank"></span>
+                        <span class="color-name" id="color-name-peach-bank"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Black without sleeves</td>
+                <td>SAR 6,465.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/loose-fit-trousers-with-belt">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#000000">
+                        <span class="selected-color" id="color-black-without-sleeves"></span>
+                        <span class="color-name" id="color-name-black-without-sleeves"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Green</td>
+                <td>SAR 6,667.00</td>
+                <td>XS, S, M, L, XL, 1XL,
+
+```html
+                2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/cargo-jeans">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#008000">
+                        <span class="selected-color" id="color-green"></span>
+                        <span class="color-name" id="color-name-green"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Red Dress</td>
+                <td>SAR 5,990.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/classic-one-breasted-jacket">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#FF0000">
+                        <span class="selected-color" id="color-red-dress"></span>
+                        <span class="color-name" id="color-name-red-dress"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Baby Blue 2</td>
+                <td>SAR 6,990.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/button-down-jumper">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#00BFFF">
+                        <span class="selected-color" id="color-baby-blue-2"></span>
+                        <span class="color-name" id="color-name-baby-blue-2"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Black with off-white sleeves</td>
+                <td>SAR 5,990.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/high-waist-cargo-joggers">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#000000">
+                        <span class="selected-color" id="color-black-with-off-white-sleeves"></span>
+                        <span class="color-name" id="color-name-black-with-off-white-sleeves"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Purple Dress</td>
+                <td>SAR 11,316.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/cardigan-with-pockets">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#800080">
+                        <span class="selected-color" id="color-purple-dress"></span>
+                        <span class="color-name" id="color-name-purple-dress"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Off-white jacket</td>
+                <td>SAR 2,288.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/mens-jackets">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#F8F8FF">
+                        <span class="selected-color" id="color-off-white-jacket"></span>
+                        <span class="color-name" id="color-name-off-white-jacket"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Violet Dress</td>
+                <td>SAR 5,990.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/eco-aware-coat">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#8A2BE2">
+                        <span class="selected-color" id="color-violet-dress"></span>
+                        <span class="color-name" id="color-name-violet-dress"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Baby Blue</td>
+                <td>SAR 4,900.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/basic-jumper">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#ADD8E6">
+                        <span class="selected-color" id="color-baby-blue"></span>
+                        <span class="color-name" id="color-name-baby-blue"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Black And White</td>
+                <td>SAR 4,945.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/basic-sweat-joggers">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#000000">
+                        <span class="selected-color" id="color-black-and-white"></span>
+                        <span class="color-name" id="color-name-black-and-white"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>White Silk Dress</td>
+                <td>SAR 6,990.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/classic-shirt-with-pocket">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#FFFFFF">
+                        <span class="selected-color" id="color-white-silk-dress"></span>
+                        <span class="color-name" id="color-name-white-silk-dress"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Blue Clay Tulle</td>
+                <td>SAR 3,335.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/biker-jacket-with-pockets">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#4682B4">
+                        <span class="selected-color" id="color-blue-clay-tulle"></span>
+                        <span class="color-name" id="color-name-blue-clay-tulle"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Gold Floral</td>
+                <td>SAR 4,140.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/bomber-jacket">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#FFD700">
+                        <span class="selected-color" id="color-gold-floral"></span>
+                        <span class="color-name" id="color-name-gold-floral"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Blue Sequins Dress</td>
+                <td>SAR 4,542.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/biker-jacket">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#1E90FF">
+                        <span class="selected-color" id="color-blue-sequins-dress"></span>
+                        <span class="color-name" id="color-name-blue-sequins-dress"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Pink Dress</td>
+                <td>SAR 3,990.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/blouse-with-decorative-attachments">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#FFC0CB">
+                        <span class="selected-color" id="color-pink-dress"></span>
+                        <span class="color-name" id="color-name-pink-dress"></span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Collection 2024 Content -->
+<div id="collection2024" class="container">
+    <h2>Collection 2024</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Available Sizes</th>
+                <th>Image Links</th>
+                <th>Colors</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- جميع المنتجات لـ Collection 2024 -->
+            <tr>
+                <td>Peach Dress</td>
+                <td>SAR 8,682.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/peach-dress">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#FFDAB9">
+                        <span class="selected-color" id="color-peach-dress"></span>
+                        <span class="color-name" id="color-name-peach-dress"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Peach Fancy Dress</td>
+                <td>SAR 7,647.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/peach-fancy-dress">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#FFE4B5">
+                        <span class="selected-color" id="color-peach-fancy-dress"></span>
+                        <span class="color-name" id="color-name-peach-fancy-dress"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>White Flowers Dress</td>
+                <td>SAR 8,999.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/white-new-dress">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#FFFFFF">
+                        <span class="selected-color" id="color-white-flowers-dress"></span>
+                        <span class="color-name" id="color-name-white-flowers-dress"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Black & White Dress</td>
+                <td>SAR 8,659.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/black-white-dress">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#000000">
+                        <span class="selected-color" id="color-black-white-dress"></span>
+                        <span class="color-name" id="color-name-black-white-dress"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>New Fancy Dress 2</td>
+                <td>SAR 11,465.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/new-fancy-dress-2">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#FFA07A">
+                        <span class="selected-color" id="color-new-fancy-dress-2"></span>
+                        <span class="color-name" id="color-name-new-fancy-dress-2"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Mehron Dress</td>
+                <td>SAR 8,855.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/mehron-dress">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#DA70D6">
+                        <span class="selected-color" id="color-mehron-dress"></span>
+                        <span class="color-name" id="color-name-mehron-dress"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Peach Dress 2</td>
+                <td>SAR 10,488.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/peach-dress-2">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#FFDAB9">
+                        <span class="selected-color" id="color-peach-dress-2"></span>
+                        <span class="color-name" id="color-name-peach-dress-2"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Yellow Dress</td>
+                <td>SAR 9,959.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/all/products/skin-dress">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#FFFF00">
+                        <span class="selected-color" id="color-yellow-dress"></span>
+                        <span class="color-name" id="color-name-yellow-dress"></span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Ready to Wear Content -->
+<div id="readyToWear" class="container">
+    <h2>Ready to Wear</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Available Sizes</th>
+                <th>Image Links</th>
+                <th>Colors</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- المنتجات لـ Ready to Wear -->
+            <tr>
+                <td>off white with gray flowers</td>
+                <td>SAR 2,599.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/ready-to-wear/products/off-white-wire-gray-flowers">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#FFFFFF">
+                        <span class="selected-color" id="color-off-white-with-gray-flowers"></span>
+                        <span class="color-name" id="color-name-off-white-with-gray-flowers"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>light green</td>
+                <td>SAR 1,799.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/ready-to-wear/products/light-green">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#90EE90">
+                        <span class="selected-color" id="color-light-green"></span>
+                        <span class="color-name" id="color-name-light-green"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>purple</td>
+                <td>SAR 1,985.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/ready-to-wear/products/purple">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#800080">
+                        <span class="selected-color" id="color-purple"></span>
+                        <span class="color-name" id="color-name-purple"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>off shoulder baby pink</td>
+                <td>SAR 2,155.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/ready-to-wear/products/off-shoulder-baby-pink">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#FFC0CB">
+                        <span class="selected-color" id="color-off-shoulder-baby-pink"></span>
+                        <span class="color-name" id="color-name-off-shoulder-baby-pink"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>black and white ruffles</td>
+                <td>SAR 1,980.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/ready-to-wear/products/black-and-white-ruffles">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#000000">
+                        <span class="selected-color" id="color-black-and-white-ruffles"></span>
+                        <span class="color-name" id="color-name-black-and-white-ruffles"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>baby blue with green beads</td>
+                <td>SAR 2,699.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/ready-to-wear/products/baby-blue-without-green-beads">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#00FFFF">
+                        <span class="selected-color" id="color-baby-blue-with-green-beads"></span>
+                        <span class="color-name" id="color-name-baby-blue-with-green-beads"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>baby pink with red beads</td>
+                <td>SAR 2,799.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/ready-to-wear/products/baby-pink-with-red-beads">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#FF69B4">
+                        <span class="selected-color" id="color-baby-pink-with-red-beads"></span>
+                        <span class="color-name" id="color-name-baby-pink-with-red-beads"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>black and pink</td>
+                <td>SAR 2,185.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/ready-to-wear/products/black-and-pink">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#FFC0CB">
+                        <span class="selected-color" id="color-black-and-pink"></span>
+                        <span class="color-name" id="color-name-black-and-pink"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>baby pink drape</td>
+                <td>SAR 1,980.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/ready-to-wear/products/baby-pink-drape">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#FFC0CB">
+                        <span class="selected-color" id="color-baby-pink-drape"></span>
+                        <span class="color-name" id="color-name-baby-pink-drape"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>dark red</td>
+                <td>SAR 2,385.00</td>
+                <td>XS, S, M, L, XL, 1XL, 2XL, 3XL OR(Special size)</td>
+                <td><a class="image-link" href="https://www.emanalghoneim.com/collections/ready-to-wear/products/dark-red">Image Link</a></td>
+                <td>
+                    <div class="color-container">
+                        <input type="color" class="color-select" onchange="updateColorDisplay(this)" value="#8B0000">
+                        <span class="selected-color" id="color-dark-red"></span>
+                        <span class="color-name" id="color-name-dark-red"></span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    // قائمة بأسماء الألوان بناءً على قيم Hex الشائعة
+    const colorNames = {
+        "#FFFFFF": "White",
+        "#000000": "Black",
+        "#FF0000": "Red",
+        "#008000": "Green",
+        "#FFFF00": "Yellow",
+        "#FFC0CB": "Pink",
+        "#800080": "Purple",
+        "#FFD700": "Gold",
+        "#00BFFF": "Deep Sky Blue",
+        "#1E90FF": "Dodger Blue",
+        "#DA70D6": "Orchid",
+        "#FFDAB9": "Peach Puff",
+        "#FF69B4": "Hot Pink",
+        "#ADD8E6": "Light Blue",
+        "#90EE90": "Light Green",
+        "#4682B4": "Steel Blue",
+        "#F8F8FF": "Ghost White",
+        "#8A2BE2": "Blue Violet",
+        "#00FFFF": "Cyan"
+        // يمكنك إضافة المزيد من الألوان حسب الحاجة
+    };
+
+    function showContent(collection) {
+        // إخفاء جميع الأقسام
+        const sections = document.querySelectorAll('.container');
+        sections.forEach(section => section.classList.remove('active'));
+
+        // إزالة فئة active من جميع التبويبات
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => tab.classList.remove('active'));
+
+        // إظهار القسم المحدد
+        const selectedSection = document.getElementById(collection);
+        if (selectedSection) {
+            selectedSection.classList.add('active');
+        }
+
+        // تفعيل التبويب المحدد
+        const activeTab = document.querySelector(`.tab[onclick="showContent('${collection}')"]`);
+        if (activeTab) {
+            activeTab.classList.add('active');
+        }
+    }
+
+    function updateColorDisplay(colorInput) {
+        const selectedColor = colorInput.value.toUpperCase();
+        const productName = colorInput.parentElement.parentElement.parentElement.querySelector('td').textContent.trim();
+        const sanitizedProductName = productName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9\-]/g, '');
+        const colorDisplay = document.getElementById(`color-${sanitizedProductName}`);
+        const colorNameDisplay = document.getElementById(`color-name-${sanitizedProductName}`);
+
+        if (colorDisplay) {
+            colorDisplay.style.backgroundColor = selectedColor;
+        }
+
+        if (colorNameDisplay) {
+            colorNameDisplay.textContent = colorNames[selectedColor] || selectedColor;
+        }
+    }
+
+    // تحديث أسماء الألوان عند تحميل الصفحة بناءً على القيمة الافتراضية
+    document.addEventListener('DOMContentLoaded', () => {
+        const colorInputs = document.querySelectorAll('.color-select');
+        colorInputs.forEach(input => {
+            updateColorDisplay(input);
+        });
+    });
+</script>
+
+</body>
+</html>
